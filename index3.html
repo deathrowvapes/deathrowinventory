@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory System</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</head>
+
+
+<body>
+  
+  <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Inventory System</a>
+    </nav>
+
+  </div>
+  
+ 
+
+
+
+  <div class="container mt-4 d-flex justify-content-center">
+    
+    <form class="d-flex" id="product-search">
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" class="form-control" id="name-input" placeholder="Enter product name">
+      </div>
+      <div class="form-group ml-2">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control"  id="quantity-input" placeholder="Enter quantity">
+      </div>
+      <div class="form-group ml-2">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" id="price-input" placeholder="Enter price">
+      </div>
+
+      
+      <button type="submit" class="btn btn-primary ml-2" style="height:45px;position: relative;top:27px">Search</button>
+    </form>
+    
+    
+
+  </div>
+
+
+  
+
+  <div class="container card px-0 " style="width:80rem;">
+    <div class="card-body text-center">
+      <h5 class="card-title"> Inventory Table</h5>
+      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="my-custom-div">
+        
+        <div class="container px-0 mt-4">
+         
+          <table class="table table-bordered " id="product-table">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Product A</td>
+                <td>10</td>
+                <td>$10.00</td>
+              </tr>
+              <tr>
+                <td>Product B</td>
+                <td>20</td>
+                <td>$20.00</td>
+              </tr>
+              <tr>
+                <td>Product C</td>
+                <td>30</td>
+                <td>$30.00</td>
+              </tr>
+              <tr>
+                <td>Product D</td>
+                <td>30</td>
+                <td>$30.00</td>
+              </tr>
+
+              <tr>
+                <td>Product E</td>
+                <td>10</td>
+                <td>$10.00</td>
+              </tr>
+
+              <tr>
+                <td>Product F</td>
+                <td>70</td>
+                <td>$50.00</td>
+              </tr>
+
+              <tr>
+                <td>Product G</td>
+                <td>90</td>
+                <td>$100.00</td>
+              </tr>
+
+            </tbody>
+          </table>
+      
+          
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  
+  <script>
+ $(document).ready(function () {
+    
+
+  $(document).ready(function() {
+  // Handle form submission
+  $('#product-search').submit(function(event) {
+    // Prevent default form submission
+    event.preventDefault();
+    
+    // Get search criteria
+    var name = $('#name-input').val().toLowerCase();
+    var quantity = $('#quantity-input').val();
+    var price = $('#price-input').val();
+
+    if(price.length>0){
+
+      var price=`$${price}.00`;
+  
+
+    }
+  
+    
+    // Search for matching products
+    $('#product-table tbody tr').each(function() {
+      var row = $(this);
+      var rowName = row.find('td:nth-child(1)').text().toLowerCase();
+      var rowQuantity = row.find('td:nth-child(2)').text();
+      var rowPrice = row.find('td:nth-child(3)').text();
+      
+      // Check if row matches search criteria
+      if ((name === '' || rowName.indexOf(name) !== -1) &&
+          (quantity === '' || rowQuantity === quantity) &&
+          (price === '' || rowPrice === price)) {
+        // Replace row with matching product
+        row.show();
+      } else {
+        // Hide row if it doesn't match
+        row.hide();
+      }
+    });
+  });
+});
+
+
+
+
+
+ });
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net"></script>
+</body>
+</html>
