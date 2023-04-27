@@ -84,24 +84,30 @@
             data={"code":code}
 
 
-            $.ajax({
-                type: "post",
-                url: "http://194.195.222.30:5000/api",
-                data: data,
-                dataType: "json",
-                success: function (response) {
-                    var message=response["Message"]
-                    var status_=response["Success"]
-                    var VerifiedDate=response["VerifiedDate"]
+            fetch("https://api.deathrowvapes.com/api/VerificationCode/VerifyCode", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    VerificationCode: "8115041713015264"
+  })
+})
+.then(response => {
+  if (response.ok) {
+    return response.json();
+  } else {
+    throw new Error("Response not ok");
+  }
+})
+.then(data => {
+  console.log(data);
+})
+.catch(error => {
+  console.error(error);
+});
 
-                    let date = new Date(VerifiedDate);
 
-                    var ver_date=date.toLocaleDateString() + " " + date.toLocaleTimeString()
-
-                    updateResults(ver_date,status_,message)
-
-                }
-            });
 
 
            }
