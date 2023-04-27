@@ -63,16 +63,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script>
         // function to update the results section with the verification results
-        
-        document.addEventListener('DOMContentLoaded', function() {
-    var csp = "default-src 'self'; upgrade-insecure-requests";
-    var meta = document.createElement('meta');
-    meta.setAttribute('http-equiv', 'Content-Security-Policy');
-    meta.setAttribute('content', csp);
-    document.head.appendChild(meta);
-});
 
-       
+
 
         function updateResults(date, status, message) {
             $('#date').text(date);
@@ -90,7 +82,6 @@
            if(code.length>0){
 
             data={"code":code}
-
 
 
             $.ajax({
