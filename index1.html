@@ -73,24 +73,6 @@
 
 
 
-<div class=" input-group mb-1 w-50 p-3 container d-flex justify-content-center">
- 
-
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-lg"> verification Code</span>
-  </div>
-
-  <input  type="text" class="form-control " ><button class="btn btn-success">
-    submit  
-    </button>
-  
-  </div>
-  
-  </div>
-
-  <br>
-
-  <br>
 </div>
 
 <div class="container d-flex justify-content-center">
@@ -137,23 +119,7 @@ document.getElementById("search_button").click();
 }
 
 
-
 });
-
-
-$.ajax({
-    url: "https://api.deathrowvapes.com/api/VerificationCode/VerifyCode",
-    type: "POST",
-    contentType: "application/json",
-    data: JSON.stringify({ "VerificationCode": "8115041713015264" }),
-    success: function(response) {
-        console.log(response);
-    },
-    error: function(xhr, status, error) {
-        console.log(error);
-    }
-});
-
 
 
 });

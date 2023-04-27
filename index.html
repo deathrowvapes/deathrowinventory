@@ -10,7 +10,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
-
   </head>
   <body>
 
@@ -25,6 +24,8 @@
   <button type="button" class="btn btn-primary search_new">Search New inventory</button>
 <button type="button" class="btn btn-secondary search_inventory">Search Existing Inventory</button>
 
+<button type="button" class="btn btn-warning verification_page">Verification code</button>
+
   </div>
 
   <script>
@@ -36,6 +37,10 @@
 
         $(".search_inventory").on("click",function(){
             window.location="index3.html";
+        })
+
+        $(".verification_page").on("click",function(){
+            window.location="index4.html";
         })
 
         $(".logo_").on("click",function(){
